@@ -1,2 +1,4 @@
 import "./style/style.scss";
-export {};
+import TablesController from "./uiLogic/TablesController";
+
+TablesController.initialize();

@@ -20,30 +20,7 @@
       <p class="navigator__link " key="Archived">Archived</p>
     </div>
 
-    <div class="form center">
-      <form class="beet2">
-        <h2>Create note</h2>
-
-        <div class="form__block">
-          <label>Name</label>
-          <input type="text" id="name-input"/>
-        </div>
-
-        <div class="form__block">
-          <label>Content</label>
-          <textarea id="content-input"></textarea>
-        </div>
-
-        <div class="form__block">
-          <label>Category</label>
-          <select id="category-input"></select>
-        </div>
-
-        <button>Submit</button>
-      </form>
-    </div>
-
-    <div class="beet2 table">
+    <div class="active-notes-table beet2 table">
       <div class="table__head notes-grid">
         <p>Name</p>
         <p>Created</p>
@@ -54,9 +31,35 @@
         <img src="../images/draw.png"/>
         <img src="../images/archive.png"/>
       </div>
-      <div class="table__row notes-grid">
+      <div class="table__flow"></div>
+    </div>
 
+    <div class="table beet2">
+      <button class="table__createNote">Create Notes</button>
+    </div>
+
+
+    <div class="archived-notes-table beet2 table">
+      <div class="table__head notes-grid">
+        <p>Name</p>
+        <p>Created</p>
+        <p>Category</p>
+        <p>Content</p>
+        <p>Dates</p>
+        <img src="../images/delete.png"/>
+        <img src="../images/draw.png"/>
+        <img src="../images/archive.png"/>
       </div>
+      <div class="table__flow"></div>
+    </div>
+
+    <div class="statistics-table table beet2">
+      <div class="table__head statistics-grids">
+        <p>Category</p>
+        <p>Active</p>
+        <p>Archived</p>
+      </div>
+      <div class="table__flow"></div>
     </div>
   </body>
 </html>
