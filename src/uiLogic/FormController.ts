@@ -71,7 +71,7 @@ class FormController {
 					${categories.reduce((curr, next) => curr + `<option value="${next}" ${getIsSelected(next)}>${next}</option>`, "")}
 				</select>
 			</div>
-			<div class="beet">
+			<div class="form__controls beet">
 				<button id="submit">Submit</button>
 				<button id="cancel">Cancel</button>
 			</div>
@@ -108,7 +108,6 @@ class FormController {
       return;
     }
 
-    console.log(this.isCreateMode);
     if (this.isCreateMode) {
       const note: INote = {
         name,
@@ -118,9 +117,11 @@ class FormController {
         id: generateKey(),
         dates: highlightDate(content),
       };
+
       store[this.storeType].push(note);
     } else {
       const note = this.note!;
+
       note.content = content;
       note.dates = highlightDate(content);
       note.name = name;

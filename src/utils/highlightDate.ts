@@ -1,7 +1,8 @@
 const highlightDate = (content: string): string => {
-  const matches = [...content.matchAll(/{1,2}\/\d{1,2}\/\d{4}/gi)];
+  const matches = [...content.matchAll(/\b([1-9]|[1-2][0-9]|3[0-1])\/([1-9]|[1][0-2])\/[1-9]\d{3}\b/gi)];
   if (matches.length === 0) return "";
-  return matches.join(" , ");
+  //! get rid of trash
+  return matches.map((array) => array[0]).join(" , ");
 };
 
 export default highlightDate;

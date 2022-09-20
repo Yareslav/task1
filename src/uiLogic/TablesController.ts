@@ -1,7 +1,6 @@
 import { INote } from "../types/types";
 import store, { categories } from "../store";
 import query from "../utils/query";
-import { disconnect } from "process";
 import saveToStorage from "../utils/saveToStorage";
 import FormController from "./FormController";
 
@@ -20,6 +19,7 @@ class TablesController {
   readonly navigator = query(".navigator", false)!;
   readonly activeNotesNavigator = this.navigator.querySelector("[key=Main]")!;
   readonly archivedNotesNavigator = this.navigator.querySelector("[key=Archived]")!;
+  readonly createNoteBtn = query(".table__createNote", false)! as HTMLButtonElement;
 
   initialize(): void {
     //! table rendering
@@ -49,10 +49,12 @@ class TablesController {
       this.activeNotesNavigator.classList.add("navigator-selected");
       this.archivedNotesTable.style.display = "none";
       this.activeNotesTable.style.display = "flex";
+      this.createNoteBtn.style.display = "block";
     } else {
       this.archivedNotesNavigator.classList.add("navigator-selected");
       this.activeNotesTable.style.display = "none";
       this.archivedNotesTable.style.display = "flex";
+      this.createNoteBtn.style.display = "none";
     }
   }
 
@@ -157,7 +159,9 @@ class TablesController {
     noteDomElement.remove();
     noteDomElement.classList.remove(isNodeArchived ? "archived" : "active");
     noteDomElement.classList.add(isNodeArchived ? "active" : "archived");
-    (isNodeArchived ? this.activeNotesTable : this.archivedNotesTable).appendChild(noteDomElement);
+    (isNodeArchived ? this.activeNotesTable : this.archivedNotesTable)
+      .querySelector(".table__flow")!
+      .appendChild(noteDomElement);
 
     this.renderStatisticsTable();
   }

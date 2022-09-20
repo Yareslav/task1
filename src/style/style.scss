@@ -102,6 +102,12 @@ body{
 			border:5px solid $white;
 		}
 	}
+	&__controls {
+		width: 180px;
+		& button {
+			width: 70px;
+		}
+	}
 }
 
 .table {
@@ -121,7 +127,7 @@ body{
 	}
 	&__row {
 		background-color: $blue;
-		width:100%;
+		width:100% !important;
 		height: 35px;
 		color:$brown;
 		font-size: 14px;
@@ -139,6 +145,7 @@ body{
 		text-overflow: ellipsis;
 		overflow: hidden;
 		max-height: 16px;
+		max-width: 25vw;
 	}
 	&__createNote{
 		padding: 7px;
@@ -150,6 +157,7 @@ body{
 		align-self: flex-end;
 		cursor: pointer;
 	}
+
 }
 
 .notes-grid{
